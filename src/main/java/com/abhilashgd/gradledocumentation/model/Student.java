@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.Period;
 
 /**
  * @version 1.0
@@ -13,7 +14,6 @@ import java.time.LocalDate;
  * @since: 1/14/22
  */
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 @Entity
 @Table
@@ -29,10 +29,18 @@ public class Student {
             generator = "student_sequence"
     )
     private Long id;
+
     private String name;
     private String email;
     private LocalDate dob;
+    @Transient
     private Integer age;
 
+    public Integer getAge(){
+        return Period.between(this.dob,LocalDate.now()).getYears();
+    }
 
+    public Student(String name, String email, LocalDate dob) {
+        this.name=name; this.email=email; this.dob=dob;
+    }
 }

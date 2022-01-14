@@ -72,7 +72,7 @@
                 id 'org.springframework.boot' version '2.6.2'
                 id 'io.spring.dependency-management' version '1.0.11.RELEASE'
                 id 'java'
-  
+
 #Properties
 
                 group = 'com.abhilashgd'
@@ -83,3 +83,30 @@
 
                 compileOnly {extendsFrom annotationProcessor}
 
+#DOCKER COMMANDS
+
+		% docker compose up
+		//switch to another terminal
+		% docker ps
+		% docker exec -it 7581260e0770 /bin/bash //where 7581260e0770 is container id
+		% psql -h localhost -p 5432 -U abhilashgd
+		% \l
+		% create database gradledemodb;
+		% \l
+		% du
+		% GRANT ALL PRIVILEGES ON DATABASE gradledemodb TO abhilashgd;
+		% \c gradledemodb;
+		% \d
+		% \dt
+        % SELECT * FROM STUDENT;
+
+#APPLICATION.PROPERTIES FOR POSTGRES DB
+
+		spring.datasource.url=jdbc:postgresql://localhost:5432/gradledemodb
+		spring.datasource.username=abhilashgd
+		spring.datasource.password=password
+		spring.jpa.hibernate.ddl-auto=create-drop
+		spring.jpa.show-sql=true
+		spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+		spring.jpa.properties.hibernate.format_sql=true
+		

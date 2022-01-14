@@ -1,6 +1,8 @@
 package com.abhilashgd.gradledocumentation.service;
 
+import com.abhilashgd.gradledocumentation.dao.StudentRepository;
 import com.abhilashgd.gradledocumentation.model.Student;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -12,17 +14,12 @@ import java.util.List;
  * @since: 1/14/22
  */
 @Service
+@RequiredArgsConstructor
 public class StudentServiceImpl implements StudentService {
-    public List<Student> getStudent(){
-        return List.of(
-                new Student(
-                        1L,
-                        "abhilash",
-                        "abhilash@test.com",
-                        LocalDate.of(2000,01,05),
-                        21
 
-                )
-        );
+    private final StudentRepository repository;
+
+    public List<Student> getStudent(){
+        return repository.findAll();
     }
 }
