@@ -1,7 +1,11 @@
 package com.abhilashgd.gradledocumentation.controller;
 
 import com.abhilashgd.gradledocumentation.model.Student;
+import com.abhilashgd.gradledocumentation.service.StudentService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
@@ -13,19 +17,13 @@ import java.util.List;
  * @since: 1/14/22
  */
 @RestController
+@RequestMapping(path = "api/v1/student")
+@RequiredArgsConstructor //takes care of autowired
 public class StudentController {
 
+    private final StudentService studentService;
     @GetMapping
-    public List<Student> hello(){
-        return List.of(
-            new Student(
-                    1L,
-                    "abhilash",
-                    "abhilash@test.com",
-                    LocalDate.of(2000,01,05),
-                    21
-
-            )
-        );
+    public List<Student> getStudent(){
+        return studentService.getStudent();
     }
 }
