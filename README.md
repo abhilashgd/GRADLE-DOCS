@@ -49,14 +49,17 @@
 #GRADLE APPLICATION DOCUMENTATION
 
 #Tasks
+
               > Task :prepareKotlinBuildScriptModel
               > Task :compileJava
               > Task :processResources
               > Task :classes
               > Task :bootJarMainClassName
               > Task :bootJar
+              > Task :GradledocumentationApplication.main()
 
 #Dependencies
+
                 implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	            implementation 'org.springframework.boot:spring-boot-starter-web'
 	            compileOnly 'org.projectlombok:lombok'
@@ -71,10 +74,12 @@
                 id 'java'
   
 #Properties
+
                 group = 'com.abhilashgd'
                 version = '0.0.1-SNAPSHOT'
                 sourceCompatibility = '11'
 
 #Configuration
+
                 compileOnly {extendsFrom annotationProcessor}
 
