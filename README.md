@@ -45,6 +45,36 @@
               % tree
               % gradle deleteDocs
               % tree
-              
-          
-          
+
+#GRADLE APPLICATION DOCUMENTATION
+
+#Tasks
+              > Task :prepareKotlinBuildScriptModel
+              > Task :compileJava
+              > Task :processResources
+              > Task :classes
+              > Task :bootJarMainClassName
+              > Task :bootJar
+
+#Dependencies
+                implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	            implementation 'org.springframework.boot:spring-boot-starter-web'
+	            compileOnly 'org.projectlombok:lombok'
+	            runtimeOnly 'org.postgresql:postgresql'
+	            annotationProcessor 'org.projectlombok:lombok'
+	            testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+#Plugins
+
+                id 'org.springframework.boot' version '2.6.2'
+                id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+                id 'java'
+  
+#Properties
+                group = 'com.abhilashgd'
+                version = '0.0.1-SNAPSHOT'
+                sourceCompatibility = '11'
+
+#Configuration
+                compileOnly {extendsFrom annotationProcessor}
+
