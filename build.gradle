@@ -1,29 +1,32 @@
-def name = "abhilash"
-def email = "abhilashgd@abhilashgd.com"
-apply plugin: 'java'
-project.task ("Task1")
-	{
-		println "Name $name"
-		Task1.description = "This is Task 1 description"
-	doLast{
-	println "Inside Do Last"
+plugins {
+	id 'org.springframework.boot' version '2.6.2'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.abhilashgd'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
 	}
-	doFirst{
-	println "Inside do First"
-	}
-		
 }
-task copyDocs(type: Copy){
-from 'src'
-into 'dest'
+
+repositories {
+	mavenCentral()
 }
-task deleteDocs(type: Delete) {
-delete 'src', 'test.java'
-followSymlinks =true
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'org.postgresql:postgresql'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
-task("Task2")
-Task2.description = "This is Task 2 description"
-task "Task3"
-Task3.description = "This is Task 3 description"
-task Task4
-Task4.description = "This is Task 4 description"
+
+test {
+	useJUnitPlatform()
+}
