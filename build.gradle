@@ -1,0 +1,29 @@
+def name = "abhilash"
+def email = "abhilashgd@abhilashgd.com"
+apply plugin: 'java'
+project.task ("Task1")
+	{
+		println "Name $name"
+		Task1.description = "This is Task 1 description"
+	doLast{
+	println "Inside Do Last"
+	}
+	doFirst{
+	println "Inside do First"
+	}
+		
+}
+task copyDocs(type: Copy){
+from 'src'
+into 'dest'
+}
+task deleteDocs(type: Delete) {
+delete 'src', 'test.java'
+followSymlinks =true
+}
+task("Task2")
+Task2.description = "This is Task 2 description"
+task "Task3"
+Task3.description = "This is Task 3 description"
+task Task4
+Task4.description = "This is Task 4 description"
