@@ -110,3 +110,13 @@
 		spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 		spring.jpa.properties.hibernate.format_sql=true
 		
+#POSTMAN TESTING
+
+        POST: http://localhost:8080/api/v1/student
+        JSON BODY: {"name": "testSubject1", "email": "test1@test.com","dob": "1995-12-17"}
+
+        GET: http://localhost:8080/api/v1/student
+        DELETE: http://localhost:8080/api/v1/student/1
+        PUT: http://localhost:8080/api/v1/student/1?name=AbhilashGD
+        PUT: http://localhost:8080/api/v1/student/1?name=AbhilashGD&email=abhilashgd@test.com
+        GET: http://localhost:8080/api/v1/student
