@@ -54,6 +54,8 @@
                 % gradle jar
                 // jar with SNAPSHOT will be created under
                 build/libs
+                //to run application on port 8081
+                java -jar gradledocumentation-0.0.1-SNAPSHOT.jar --server.port=8081
 
 #Tasks
 
