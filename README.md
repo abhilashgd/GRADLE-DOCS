@@ -48,6 +48,13 @@
 
 #GRADLE APPLICATION DOCUMENTATION
 
+		Student Registration basic application which takes student name, email and dob and stores in db. id auto-generated and email unique key.
+		a new student can be resistered using POST request by sending name,email and dob. information can be updated using put request(email and name only)
+		implemented functionalities - GET(fetch all), POST(registed a student), PUT(update email and name) and DELETE (by ID)
+		Gradle - build tool
+		Postgres DB - using docker-compose exposed on 5432
+		Spring boot - api backend application (build type jar).
+		
 #BUILD JAR
 
                 % gradle clean
