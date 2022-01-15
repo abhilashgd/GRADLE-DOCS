@@ -48,6 +48,13 @@
 
 #GRADLE APPLICATION DOCUMENTATION
 
+#BUILD JAR
+
+                % gradle clean
+                % gradle jar
+                // jar with SNAPSHOT will be created under
+                build/libs
+
 #Tasks
 
               > Task :prepareKotlinBuildScriptModel
